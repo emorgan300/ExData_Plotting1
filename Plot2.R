@@ -1,5 +1,19 @@
 ##Assignment 1: March 8, 2015##
 
+##Data Source##
+##This plot utilizes data from the UCI Machine Learning Repository##
+##The name of the dataset is "“Individual household electric power consumption" (2012)##
+##The dataset may be downloaded from: http://archive.ics.uci.edu/ml/datasets.html##
+
+##This plot makes use of data between Feb. 1, 2007 - Feb. 2, 2007.##
+##As suggested in the assignment instructions, I extracted the data for ONLY those dates, and put them into a .csv file, prior to reading the data into R##
+##Other users could reproduce these plots by downloading the data indicated above, and following the same procedure##
+##As noted in the EDA Discussion forum titled "Assignment 1 Important Notes" (see post on 3/4/15 by Scott von Kleeck), this script only needs to include code for reading in the data, NOT downloading and unzipping the initial file##
+
+##ONE FINAL NOTE: The .png files in the "Figure" folder in the ExData_Plotting1 repository are the most up-to-date versions posted by Roger Peng. These are the ones to use for comparison with the plots I created.##
+##Note that Roger Peng's figures utilize a transparent background, which shows up in the .png file as a checkered backdrop##
+
+
 ##Plot 2##
 
 ##Set the working directory and read in the data##
@@ -25,15 +39,12 @@ png(filename = "plot2.png", width = 480, height = 480, units = "px", pointsize =
 
 ##Create the plot##
 
-par(oma = c(0,0,3,0)) ##Create a top outer margin##
+par(bg = "transparent") ##Set transparent background##
 
-plot(x = dt, y = alldata$Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")##Create the line graph##
+plot(x = dt, y = alldata$Global_active_power, type = "l", bg = "transparent", ann = FALSE) ##Create the line graph##
 
-par(adj = 0) ##Left-justify the outer title##
+title(xlab = "", ylab = "Global Active Power (kilowatts)") ##Annotate the plot##
 
-par(ps = 14) ##Increase the font size of the outer title##
-
-title(main = "Plot 2", outer = TRUE) ##Specify the outer title##
 
 ##Turn off the current graphics device##
 dev.off()
